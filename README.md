@@ -80,11 +80,11 @@ Here's an overview of the most relevant directories and files I created. Please 
 - `media`- empty directory for media uploads storage.
 - `task_manager`- the main django project directory which contains `settings.py` and the project's `urls.py` (among other files).
 - `tasks`- the django project application, consists of:
-  - `templates`- there's a subdir called `tasks` that contains the html document linked to the static react build files.
+  - `templates`/`tasks`- contains the html document linked to the static react build files.
   - `models.py`- 10 data models for 'User', 'Task', 'Project', 'Company', 'Team', 'TeamManager', 'TaskReview', 'Role', 'Attachment'and 'TaskComment'.
-  - `serializers.py`- I defined serializers for each data model to send the data over json.
-  - `urls`- defines the urls associated for our views.
-  - `views`- api views that handle data and one template view that serves the html template.
+  - `serializers.py`- I defined serializers for each data model to return json.
+  - `urls.py`- defines the urls associated for our views.
+  - `views.py`- api views that handle data and one template view that serves the html template.
 
 ---
 
