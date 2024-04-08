@@ -1,0 +1,56 @@
+header,footer {
+  background: linear-gradient(90deg,#343232 30%, #454593, #5e215e) ;
+}
+.main-container{
+  min-height: 40vw;
+}
+
+.logo {
+  display: inline-block; 
+  animation: logo-spin  infinite 20s linear;
+  filter: drop-shadow(0 0 1em #bb63ff);
+}
+
+.home-icon{
+  color: #984cd2;
+}
+.company-badge{
+  background-color: #f0f0fb;
+  filter: drop-shadow(0 0.1em 0.2em #cec0da);
+}
+.alert{z-index: 100;}
+.description{
+  white-space: pre-line;
+}
+
+@keyframes logo-spin {
+  0%,100% {
+    transform: rotate(0deg);
+  }
+  50%{
+    transform: rotate(360deg);
+  }
+}
+
+ a.task, a.project {
+  font-weight: 500;
+  color: #c015b7;
+  text-decoration: inherit;
+} 
+ a.task:hover, a.project:hover{
+  color: #8c39ff;
+} 
+
+
+@media (prefers-reduced-motion: no-preference) {
+  span.logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+@media (max-width: 767px) {
+  .main-container {
+    min-height: 80vh; 
+  }
+}
+

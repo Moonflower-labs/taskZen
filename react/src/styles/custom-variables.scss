@@ -1,0 +1,18 @@
+// Define your custom colors
+$custom-primary: #8029ba; 
+$custom-secondary: #e8d757ce; 
+$custom-info: #39c6ed; 
+$custom-success: #3ae137dd; 
+
+$nav-underline-link-active-color: #555cb8; 
+
+
+
+// Override Bootstrap variables with the custom colors
+$primary: $custom-primary;
+$secondary: $custom-secondary;
+$info:$custom-info;
+$success:$custom-success;
+
+
+
