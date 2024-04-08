@@ -102,7 +102,7 @@ Here's an overview of the most relevant directories and files I created. Please 
 
 Follow this steps to run the application in your local machine:
 
-1.  Clone the repository. Run `git clone https://github.com/Moonflower-labs/taskZen.git` in your terminal.
+1.  Clone the repository. Run `git clone https://github.com/Moonflower-labs/taskZen.git` in your terminal. Move to the root directory `cd taskZen`.
 2.  Set up the frontend:
     - Once you are in the project root directory, change directory to `react` with `cd react`.
     - Install react dependencies. From the `react` directory run `npm i` or `npm install`.
@@ -116,7 +116,7 @@ Follow this steps to run the application in your local machine:
           python manage.py migrate
 
     - Optionally you can create a superuser with `python manage.py createsuperuser` for acces to Django admin interface.
-    - Collect static files: run `python manage.py collectstatic`.
+    - Collect static files **(only needed for production)**: run `python manage.py collectstatic`.
     - Finally start the server `python manage.py runserver`.
 
 4.  Open http://127.0.0.1:8000/ in your browser.
