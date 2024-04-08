@@ -75,7 +75,8 @@ Here's an overview of the most relevant directories and files I created. Please 
 
 - ### Backend:
 
-  - `task_manager`- this is the django project directory which contains `settings.py` and the project's `urls.py` (among other files).
+  - `media`- empty directory for media uploads storage
+  - `task_manager`- the main django project directory which contains `settings.py` and the project's `urls.py` (among other files).
   - `tasks`- the django project application, consists of:
     - `templates`- there's a subdir called `tasks` that contains the html document linked to the static react build files.
     - `models.py`- 10 data models for 'User', 'Task', 'Project', 'Company', 'Team', 'TeamManager', 'TaskReview', 'Role', 'Attachment'and 'TaskComment'.
@@ -101,9 +102,7 @@ Here's an overview of the most relevant directories and files I created. Please 
 
 Follow this steps to run the application in your local machine:
 
-1.  Copy the url and clone the repository.  
-    Click on the `<> code` button and copy the repository url. Then run
-    `git clone {repository-url}` in your terminal.
+1.  Clone the repository. Run `git clone https://github.com/Moonflower-labs/taskZen.git` in your terminal.
 2.  Set up the frontend:
     - Once you are in the project root directory, change directory to `react` with `cd react`.
     - Install react dependencies. From the `react` directory run `npm i` or `npm install`.
@@ -153,9 +152,9 @@ Click register and fill in the form. Enter **the same company name as the previo
 
 Feel free to create as many users as you like.
 
-#### Using Task Zen as a "Manager" or "Admin"
-
 ---
+
+#### Using Task Zen as a "Manager" or "Admin"
 
 ### Tasks
 
@@ -256,9 +255,9 @@ NOTE: **The related task status will also update accordingly. E.g. if you edit a
 
 Click the bin icon and confirm the prompt. If you were in the detail page, you will be redirected to the Reviews (list) page.
 
-### Using Task Zen as an "Employee"
-
 ---
+
+### Using Task Zen as an "Employee"
 
 #### Dasboard
 
