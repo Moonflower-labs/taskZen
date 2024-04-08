@@ -12,11 +12,10 @@ from django.utils.decorators import method_decorator
 from django.views.generic import TemplateView
 
 from .serializers import *
-
 from .models import *
 
 
-# This view serves the react app
+# This view serves the react app template
 class ReactAppView(TemplateView):
     template_name = 'tasks/index.html'
 

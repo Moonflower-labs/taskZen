@@ -1,6 +1,8 @@
 # Task Zen
 
-This web application provides tools to manage your company or organization. An intuitive task manager, easy to use and user friendly.  
+**IMPORTANT: This web application has been built specifically for the [CS50W Harvard course](https://cs50.harvard.edu/web/2020/). Any form of code duplication or reproduction is strictly prohibited for individuals currently enrolled in the course.**
+
+Task Zen provides tools to manage your company or organization. An intuitive user friendly task manager easy to use.  
 Company managers can create teams and group employees. Create projects and tasks, multiple tasks can be grouped into projects. Set deadlines and assign tasks to employees. Employees must upload relevant files and submit for review once ready.  
 Reviewers are notified (in-app) when tasks are ready for review.
 
@@ -75,7 +77,7 @@ Here's an overview of the most relevant directories and files I created. Please 
 
 - ### Backend:
 
-  - `media`- empty directory for media uploads storage
+  - `media`- empty directory for media uploads storage.
   - `task_manager`- the main django project directory which contains `settings.py` and the project's `urls.py` (among other files).
   - `tasks`- the django project application, consists of:
     - `templates`- there's a subdir called `tasks` that contains the html document linked to the static react build files.
@@ -91,8 +93,7 @@ Here's an overview of the most relevant directories and files I created. Please 
   - `react/src`
     - `api/fetch.js`- reusable function for data fetching.
     - `components`- this directory contains UI components organised by "page" category that are used in each page.
-    - `routes`- each file is a page corresponding with the routes defined in App.jsx.  
-      Each page also contains a loader and action functions, which are the tolls for managing data fetching and mutations. For more info plesase visit [react router](https://reactrouter.com/en/main/start/overview).
+    - `routes`- each file is a page corresponding with the routes defined in App.jsx. Each page also contains a loader and action functions, which are responsible for data fetching and mutations. For more info plesase visit [react router](https://reactrouter.com/en/main/start/overview).
     - `styles`- css file and scss override some [Bootstrap variables](https://getbootstrap.com/docs/5.3/customize/css-variables/).
     - `utils`- this directory includes a number of files with helper functions (e.g. `cookie.js` defines the functions to obtain/handle the CSRF token).
     - `App.jsx`- here we define the router and associate each page, we import all pages along with loaders and actions from `routes`
@@ -289,4 +290,4 @@ In the review page you can see a list of company reviews and click on each for t
 
 ---
 
-Thanks for taking the time to read this docs. I hope you found them satisfactory and also many thanks to everyone who makes posible the cs50 courses specially to Brian. I'll see you all on the other side!
+Thanks for taking the time to read this docs. I hope you found them satisfactory and also many thanks to everyone who makes posible the cs50 Hardvard courses, specially to Brian. I'll see you all on the other side!
