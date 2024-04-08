@@ -29,7 +29,7 @@ Reviewers are notified (in-app) when tasks are ready for review.
 ---
 
 - Tasks  
-  See all company tasks, create, edit and delete . Note the create, edit and delete features are only avaliable for `Admin` and `Manager` roles, whereas users with single `Employee` role will still see all tasks with visibilty `public`. The visibility field dictates whether the employees can see tasks, even if a task is assigned to an employee, **it must be `public`** for the empoyee user to see it.
+  See all company tasks, create, edit and delete . Note the create, edit and delete features are only avaliable for `Admin` and `Manager` roles, whereas users with single `Employee` role will still see all tasks with visibilty "public". The visibility field dictates whether the employees can see tasks, even if a task is assigned to an employee, **it must be "public"** for the empoyee user to see it.
 
 ---
 
@@ -75,36 +75,37 @@ In addition to the above, this application is fully mobile responsive.
 
 Here's an overview of the most relevant directories and files I created. Please note that not all the files are explained here .
 
-- ### Backend:
+### Backend:
 
-  - `media`- empty directory for media uploads storage.
-  - `task_manager`- the main django project directory which contains `settings.py` and the project's `urls.py` (among other files).
-  - `tasks`- the django project application, consists of:
-    - `templates`- there's a subdir called `tasks` that contains the html document linked to the static react build files.
-    - `models.py`- 10 data models for 'User', 'Task', 'Project', 'Company', 'Team', 'TeamManager', 'TaskReview', 'Role', 'Attachment'and 'TaskComment'.
-    - `serializers.py`- I defined serializers for each data model to send the data over json.
-    - `urls`- defines the urls associated for our views.
-    - `views`- api views that handle data and one template view that serves the html template.
+- `media`- empty directory for media uploads storage.
+- `task_manager`- the main django project directory which contains `settings.py` and the project's `urls.py` (among other files).
+- `tasks`- the django project application, consists of:
+  - `templates`- there's a subdir called `tasks` that contains the html document linked to the static react build files.
+  - `models.py`- 10 data models for 'User', 'Task', 'Project', 'Company', 'Team', 'TeamManager', 'TaskReview', 'Role', 'Attachment'and 'TaskComment'.
+  - `serializers.py`- I defined serializers for each data model to send the data over json.
+  - `urls`- defines the urls associated for our views.
+  - `views`- api views that handle data and one template view that serves the html template.
 
 ---
 
-- ### Frontend:
-  - `react`- main frontend directory. Contains the following:
-    - `public`- contains images used in the app.
-    - `index.html`- document for the react app.
-    - `src`:
-      - `api/fetch.js`- reusable function for data fetching.
-      - `components`- this directory contains UI components organised by "page" category that are used in each page.
-      - `routes`- contains subdirectories `auth`, `projects`,`reviews`, `tasks` and `teams`, which hold the relevant route files. Each file is a page corresponding with the routes defined in App.jsx. Each page also contains a 'loader' and 'action' functions, which are responsible for data fetching and mutations. For more info plesase visit [react router](https://reactrouter.com/en/main/start/overview).
-      - `styles`- css file and scss override some [Bootstrap variables](https://getbootstrap.com/docs/5.3/customize/css-variables/).
-      - `utils`- this directory includes a number of files with helper functions:
-        - `alert.jsx`- defines a fuction to append alerts.
-        - `authProvider.js`- contains the client logic for logging in, logging out and register.
-        - `cookie.js`- defines the functions to obtain/handle the CSRF token.
-        - `helpers.js`- functions to calculate completion percentage and other utilities.
-        - `protectedRouteLoader.js`- the function in this file handles restricted routes.
-      - `App.jsx`- here we define the router and associate each page, we import all pages along with loaders and actions from `routes`
-      - `main.jsx`- in this file we bind the react app with the div 'root' from `index.html`.
+### Frontend:
+
+- `react`- main frontend directory. Contains the following:
+  - `public`- contains images used in the app.
+  - `index.html`- document for the react app.
+  - `src`:
+    - `api/fetch.js`- reusable function for data fetching.
+    - `components`- this directory contains UI components organised by "page" category that are used in each page.
+    - `routes`- contains subdirectories `auth`, `projects`,`reviews`, `tasks` and `teams`, which hold the relevant route files. Each file is a page corresponding with the routes defined in App.jsx. Each page also contains a 'loader' and 'action' functions, which are responsible for data fetching and mutations. For more info plesase visit [react router](https://reactrouter.com/en/main/start/overview).
+    - `styles`- css file and scss override some [Bootstrap variables](https://getbootstrap.com/docs/5.3/customize/css-variables/).
+    - `utils`- this directory includes a number of files with helper functions:
+      - `alert.jsx`- defines a fuction to append alerts.
+      - `authProvider.js`- contains the client logic for logging in, logging out and register.
+      - `cookie.js`- defines the functions to obtain/handle the CSRF token.
+      - `helpers.js`- functions to calculate completion percentage and other utilities.
+      - `protectedRouteLoader.js`- the function in this file handles restricted routes.
+    - `App.jsx`- here we define the router and associate each page, we import all pages along with loaders and actions from `routes`
+    - `main.jsx`- in this file we bind the react app with the div 'root' from `index.html`.
 
 ## How to run Task Zen
 
