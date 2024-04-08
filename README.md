@@ -16,7 +16,7 @@ Reviewers are notified (in-app) when tasks are ready for review.
 
 - Teams  
   See a table of company teams and filter between "all" and "my teams" (employees) or "managed"(admin).  
-  Admins will also see a `add a new team` button and a column called actions will display the avaliable actions. Click on each team to see the detailed info. The edit and delete actions will appear if you are the team manager.
+  Admins will also see a "add a new team" button and a column called actions will display the avaliable actions. Click on each team to see the detailed info. The edit and delete actions will appear if you are the team manager.
 
 ---
 
@@ -29,12 +29,12 @@ Reviewers are notified (in-app) when tasks are ready for review.
 ---
 
 - Tasks  
-  See all company tasks, create, edit and delete . Note the create, edit and delete features are only avaliable for `Admin` and `Manager` roles, whereas users with single `Employee` role will still see all tasks with visibilty `public`. The visibility field dictates whether the employees can see tasks, even if the task is assigned to the user **it must be `public`** for the empoyee user to see it.
+  See all company tasks, create, edit and delete . Note the create, edit and delete features are only avaliable for `Admin` and `Manager` roles, whereas users with single `Employee` role will still see all tasks with visibilty `public`. The visibility field dictates whether the employees can see tasks, even if a task is assigned to an employee, **it must be `public`** for the empoyee user to see it.
 
 ---
 
 - Reviews  
-  Users wit `Admin` and/or `Manager` roles can create, edit and delete task reviews. Task reviews are also displayed for users with single `Employee` role .
+  Users with `Admin` and/or `Manager` roles can create, edit and delete task reviews. Task reviews are also displayed for users with single `Employee` role .
 
 ---
 
@@ -55,7 +55,7 @@ Aditionally is worth noting that the Django views are [class based views](https:
 
 This application is configured to serve static files in production, thanks to [WhiteNoise middleware ](https://whitenoise.readthedocs.io/en/latest/). Although for serving media files in production further configuration is requred.
 
-As for complexity, the frontend and backend are two separate apps. Django provides a robust backend,while the frontend is a react SPA (single page app) which provides client side navigation. During development the frontend and backend run in different ports, demanding the need for cors handling. I succesfully integrated react with Django to work seamlessly, with the help of `django-cors-headers`, django sessions and csrf protection. This setup has exceeded the complexity of any prevoius projects.
+As for complexity, the frontend and backend are two separate apps. Django provides a robust backend, while the frontend is a react SPA (single page app) which provides client side navigation. During development the frontend and backend run in different ports, demanding the need for cors handling. I succesfully integrated react with Django to work seamlessly, with the help of `django-cors-headers`, django sessions and csrf protection. This setup has exceeded the complexity of any prevoius projects.
 
 The Django app has 10 models with different relationships between them, making the database queries more complex than in previous projects.
 
@@ -82,22 +82,29 @@ Here's an overview of the most relevant directories and files I created. Please 
   - `tasks`- the django project application, consists of:
     - `templates`- there's a subdir called `tasks` that contains the html document linked to the static react build files.
     - `models.py`- 10 data models for 'User', 'Task', 'Project', 'Company', 'Team', 'TeamManager', 'TaskReview', 'Role', 'Attachment'and 'TaskComment'.
-    - `serializers.py`- we defined serializers for each data model to send the data over json.
+    - `serializers.py`- I defined serializers for each data model to send the data over json.
     - `urls`- defines the urls associated for our views.
     - `views`- api views that handle data and one template view that serves the html template.
 
 ---
 
 - ### Frontend:
-  - `react/public`- contains images used in the app.
-  - `react/src`
-    - `api/fetch.js`- reusable function for data fetching.
-    - `components`- this directory contains UI components organised by "page" category that are used in each page.
-    - `routes`- each file is a page corresponding with the routes defined in App.jsx. Each page also contains a loader and action functions, which are responsible for data fetching and mutations. For more info plesase visit [react router](https://reactrouter.com/en/main/start/overview).
-    - `styles`- css file and scss override some [Bootstrap variables](https://getbootstrap.com/docs/5.3/customize/css-variables/).
-    - `utils`- this directory includes a number of files with helper functions (e.g. `cookie.js` defines the functions to obtain/handle the CSRF token).
-    - `App.jsx`- here we define the router and associate each page, we import all pages along with loaders and actions from `routes`
-    - `main.jsx`- in this file we bind the react app with the div 'root' from `index.html`.
+  - `react`- main frontend directory. Contains the following:
+    - `public`- contains images used in the app.
+    - `index.html`- document for the react app.
+    - `src`:
+      - `api/fetch.js`- reusable function for data fetching.
+      - `components`- this directory contains UI components organised by "page" category that are used in each page.
+      - `routes`- contains subdirectories `auth`, `projects`,`reviews`, `tasks` and `teams`, which hold the relevant route files. Each file is a page corresponding with the routes defined in App.jsx. Each page also contains a 'loader' and 'action' functions, which are responsible for data fetching and mutations. For more info plesase visit [react router](https://reactrouter.com/en/main/start/overview).
+      - `styles`- css file and scss override some [Bootstrap variables](https://getbootstrap.com/docs/5.3/customize/css-variables/).
+      - `utils`- this directory includes a number of files with helper functions:
+        - `alert.jsx`- defines a fuction to append alerts.
+        - `authProvider.js`- contains the client logic for logging in, logging out and register.
+        - `cookie.js`- defines the functions to obtain/handle the CSRF token.
+        - `helpers.js`- functions to calculate completion percentage and other utilities.
+        - `protectedRouteLoader.js`- the function in this file handles restricted routes.
+      - `App.jsx`- here we define the router and associate each page, we import all pages along with loaders and actions from `routes`
+      - `main.jsx`- in this file we bind the react app with the div 'root' from `index.html`.
 
 ## How to run Task Zen
 
@@ -135,7 +142,7 @@ Congratulations! You have succesfully installed the appication. Now you are read
 
 You must register and log in to access the features of **Task Zen**.
 
-When registering a new user you must enter a company name and choose your role (admin, manager or employee). This is for the sake of simplicity an in a real life use case the company would handle role assignment. Please **note that currently manager and admin have the same permissions so there's no distiction between the two roles**.
+When registering a new user you must enter a company name and choose your role (admin, manager or employee). This is for the sake of simplicity an in a real life use case the company would handle role assignment. Please **note that currently manager and admin roles have the same permissions so there's no distiction between the two roles**.
 
 The company name provided at registration will be used by the application to identify and retrieve data belonging to a certain company, group or organization.
 
