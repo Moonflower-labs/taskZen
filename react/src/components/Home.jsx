@@ -37,14 +37,14 @@ const Home = () => {
         </h6>
       </div>
       <div className="row mb-4">
-        <div className="col-12 mb-3 d-flex align-items-center flex-column flex-md-row">
+        <div className="col-12 mb-3 text-center d-flex align-items-center flex-column flex-md-row">
           <div className="order-md-2 mb-3 mx-auto">
             <h5 className="text-center">Teams</h5>
             <hr className="border-2 text-primary" />
             <ul className="list-group list-group-flush">
               <li className="list-group-item">
-                As an admin you can create teams within your organization to
-                group employees.
+                Admins can create teams within the organization to group
+                employees.
               </li>
             </ul>
           </div>
@@ -59,7 +59,7 @@ const Home = () => {
           <div className="mb-3 mx-auto">
             <h5 className="text-center">Tasks</h5>
             <hr className="border-2 text-primary" />
-            <ul className="list-group list-group-flush">
+            <ul className="text-decoration-none">
               <li className="list-group-item">
                 Create, edit and delete tasks.
               </li>
@@ -79,7 +79,7 @@ const Home = () => {
             <h5 className="text-center">Projects</h5>
             <hr className="border-2 text-primary" />
             <p>For complex tasks, create a project and add tasks.</p>
-            <ul className="list-group list-group-flush">
+            <ul className="text-decoration-none">
               <li className="list-group-item">
                 Create, edit, and delete projects.
               </li>
@@ -95,18 +95,14 @@ const Home = () => {
           />
         </div>
 
-        <div className="col-12 mb-3 d-flex align-items-center flex-column flex-md-row">
+        <div className="col-12 mb-3 d-flex text-center align-items-center flex-column flex-md-row">
           <div className="mb-3 mx-auto">
-            <h5 className="text-center">Dashboard</h5>
+            <h5>Dashboard</h5>
             <hr className="border-2 text-primary" />
             <p>
               Visit your <Link to={"dashboard"}>dashboard</Link> to see an
               overview and approaching deadlines.
             </p>
-            <ul className="list-group list-group-flush">
-              <li className="list-group-item">View progress</li>
-              <li className="list-group-item">Assign to employyes.</li>
-            </ul>
           </div>
           <img
             src={dashImgUrl}
