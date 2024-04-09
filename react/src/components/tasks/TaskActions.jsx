@@ -15,9 +15,7 @@ const TaskActions = ({ task }) => {
   let status = fetcher.formData?.get("status") || task.status;
   let isComplete = status === "Complete";
   let uploadFormRef = useRef(null);
-  console.log(isAsignee);
-  console.log(task.assigned_to);
-  console.log(user.username);
+
   useEffect(() => {
     if (fetcher.state === "idle" && fetcher.data?.message) {
       uploadFormRef.current?.reset(); // Reset the form
