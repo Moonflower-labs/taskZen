@@ -9,7 +9,6 @@ import Pagination from "../../components/Pagination";
 
 export async function loader({ request }) {
   const url = new URL(request.url);
-  // * ADD PAGES
   const page = url.searchParams.get("page") || 1;
   const teamsFilter = url.searchParams.get("teams") || "all";
   const pageParam = page ? `&page=${page}` : "";

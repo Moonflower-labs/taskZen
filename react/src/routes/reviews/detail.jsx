@@ -30,7 +30,7 @@ export async function action({ params, request }) {
       return response;
     }
     case "DELETE": {
-      if (window.confirm("Are you sure you want to delete this project?")) {
+      if (window.confirm("Are you sure you want to delete this review?")) {
         const response = await fetchAPI(`api/review/${params.reviewId}`, {
           method: "delete",
         });

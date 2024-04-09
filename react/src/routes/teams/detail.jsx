@@ -103,7 +103,7 @@ const TeamtDetail = () => {
                 Managers {team?.managers?.length}
               </span>
             </h5>
-            <ul className="list-group">
+            <ul className="list-group mb-4">
               {team?.managers.length &&
                 team.managers.map((manager) => (
                   <li key={manager.id} className="list-group-item ">
@@ -123,6 +123,14 @@ const TeamtDetail = () => {
                   </li>
                 ))}
             </ul>
+            {team?.description && (
+              <>
+                <div>
+                  <h5>Description</h5>
+                  <p>{team.description}</p>
+                </div>
+              </>
+            )}
           </div>
         </div>
       ) : (

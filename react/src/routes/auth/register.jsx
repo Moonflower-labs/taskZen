@@ -20,6 +20,7 @@ export const action = async ({ request }) => {
   const email = formData.get("email");
   const password1 = formData.get("password");
   const password2 = formData.get("confirmation");
+  const company = formData.get("company");
 
   //   Validate user input before submitting to the server
   if (!username) return { error: "You must enter a valid username" };
@@ -27,6 +28,7 @@ export const action = async ({ request }) => {
   if (!password1) return { error: "You must enter a password" };
   if (!password2) return { error: "You must confirm your password" };
   if (password1 !== password2) return { error: "The passwords must match" };
+  if (!company) return { error: "You must enter a company name" };
 
   const newUser = await authProvider.register(formData);
   if (!newUser) return { error: "Invalid register attempt" };

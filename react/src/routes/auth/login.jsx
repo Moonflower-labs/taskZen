@@ -18,8 +18,10 @@ export async function loader() {
 export async function action({ request }) {
   const formData = await request.formData();
   const username = formData.get("username");
+  const password = formData.get("password");
   // Validate  user input
   if (!username) return { error: "You must provide a username to log in." };
+  if (!password) return { error: "You must enter a password." };
 
   const userData = await authProvider.login(formData);
   if (!userData) return { error: "Invalid login attempt" };

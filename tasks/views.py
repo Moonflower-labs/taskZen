@@ -234,11 +234,11 @@ class TaskListView(View):
         if tasks_q == 'missed':
             queryset = queryset.filter(
                 due_date__lte=datetime.now(), status='pending')
+
         if tasks_q == 'created' or not tasks_q and request.user.has_manager_or_admin_role():
             queryset = Task.objects.filter(created_by=request.user)
         if tasks_q == 'assigned' or not tasks_q and not request.user.has_manager_or_admin_role():
             queryset = Task.objects.filter(assigned_to=request.user)
-
         if visibility:
             queryset = queryset.filter(visibility=visibility)
         if status in ['pending', 'complete', 'reviewing']:

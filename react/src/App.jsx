@@ -87,7 +87,7 @@ const router = createBrowserRouter(
           id: "home",
         },
         {
-          // # Protected routes
+          //  Protected routes
           loader: protectedRouteLoader,
           errorElement: <ErrorPage />,
           children: [
@@ -238,7 +238,6 @@ const router = createBrowserRouter(
       v7_partialHydration: true,
     },
     hydrationData: {
-      // root: "ROOT DATA",
       dashboard: "Dashboard data",
     },
   }

@@ -9,13 +9,15 @@ import appendAlert from "../../utils/alert";
 const TaskActions = ({ task }) => {
   const { isAdmin, user } = useRouteLoaderData("root") || {};
   const isAuthor = task.created_by === user.username || false;
-  const isAsignee = task.assign_to === user.username || false;
+  const isAsignee = task.assigned_to === user.username || false;
   const fetcher = useFetcher();
   const csrfToken = getCookie("csrftoken") || "";
   let status = fetcher.formData?.get("status") || task.status;
   let isComplete = status === "Complete";
   let uploadFormRef = useRef(null);
-
+  console.log(isAsignee);
+  console.log(task.assigned_to);
+  console.log(user.username);
   useEffect(() => {
     if (fetcher.state === "idle" && fetcher.data?.message) {
       uploadFormRef.current?.reset(); // Reset the form
@@ -102,37 +104,32 @@ const TaskActions = ({ task }) => {
       )}
 
       <div className="col-md-6 text-center mx-auto mb-3">
-        {isAsignee ||
-          (isAdmin && (
-            <fetcher.Form method="post" ref={uploadFormRef}>
+        {(isAsignee || isAdmin) && (
+          <fetcher.Form method="post" ref={uploadFormRef}>
+            <input type="hidden" name="csrfmiddlewaretoken" value={csrfToken} />
+            <input type="hidden" name="objectToCreate" value={"attachment"} />
+            <div className="d-flex gap-3">
               <input
-                type="hidden"
-                name="csrfmiddlewaretoken"
-                value={csrfToken}
+                className="form-control"
+                name="attachments"
+                type="file"
+                id="formFileMultiple"
+                multiple
+                disabled={task.status === "Reviewing"}
               />
-              <input type="hidden" name="objectToCreate" value={"attachment"} />
-              <div className="d-flex gap-3">
-                <input
-                  className="form-control"
-                  name="attachments"
-                  type="file"
-                  id="formFileMultiple"
-                  multiple
-                  disabled={task.status === "Reviewing"}
-                />
-                <button
-                  className="btn btn-outline-success d-flex align-items-center gap-2 shadow mx-auto"
-                  type="submit"
-                  name="id"
-                  value={task.id}
-                  disabled={task.status === "Reviewing"}
-                >
-                  <span>Upload</span>
-                  <IoMdAttach />
-                </button>
-              </div>
-            </fetcher.Form>
-          ))}
+              <button
+                className="btn btn-outline-success d-flex align-items-center gap-2 shadow mx-auto"
+                type="submit"
+                name="id"
+                value={task.id}
+                disabled={task.status === "Reviewing"}
+              >
+                <span>Upload</span>
+                <IoMdAttach />
+              </button>
+            </div>
+          </fetcher.Form>
+        )}
       </div>
       {fetcher.data?.error && (
         <div className="text-danger text-center my-3">{fetcher.data.error}</div>

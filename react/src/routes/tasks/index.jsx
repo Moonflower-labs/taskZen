@@ -16,7 +16,6 @@ import TaskFilters from "../../components/tasks/TaskFilters";
 export async function loader({ request }) {
   const url = new URL(request.url);
   const page = url.searchParams.get("page") || 1;
-
   let queryParams = {};
   for (const param of url.searchParams.entries()) {
     if (param[0] !== "page" && param[1] !== "") {
